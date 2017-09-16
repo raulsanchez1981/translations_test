@@ -1,4 +1,4 @@
-package issue;
+package issues.entities;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -32,7 +32,7 @@ public class Issue {
     }
 
 
-    @ApiModelProperty(notes = "The id of the issue", required = true)
+    @ApiModelProperty(notes = "The id of the issues", required = true)
     public Long getId() {
         return id;
     }

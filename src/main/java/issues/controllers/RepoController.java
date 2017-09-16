@@ -1,4 +1,4 @@
-package issue;
+package issues.controllers;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import issues.entities.Issue;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,8 +33,8 @@ public class RepoController {
 
     @ApiOperation(value = "getIssuesRepo", nickname = "getIssuesRepo")
     @ApiImplicitParams({
-        @ApiImplicitParam(name = "owner", value = "Name of the User Owner", required = false, dataType = "string", paramType = "path"),
-        @ApiImplicitParam(name = "repo", value = "Name of the Repository", required = false, dataType = "string", paramType = "path")
+        @ApiImplicitParam(name = "owner", value = "Name of the User Owner", required = true, dataType = "string", paramType = "path"),
+        @ApiImplicitParam(name = "repo", value = "Name of the Repository", required = true, dataType = "string", paramType = "path")
     })
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Success", response = Issue.class, responseContainer = "List"),
