@@ -1,5 +1,10 @@
 package issue;
 
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +27,16 @@ public class RepoController {
 
     private Map<String, List<Issue>> issueSchema = new HashMap<>();
 
+
+    @ApiOperation(value = "getIssuesRepo", nickname = "getIssuesRepo")
+    @ApiImplicitParams({
+        @ApiImplicitParam(name = "owner", value = "Name of the User Owner", required = false, dataType = "string", paramType = "path"),
+        @ApiImplicitParam(name = "repo", value = "Name of the Repository", required = false, dataType = "string", paramType = "path")
+    })
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = "Success", response = Issue.class, responseContainer = "List"),
+        @ApiResponse(code = 404, message = "Not Found"),
+        @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(method=RequestMethod.GET, value="/{owner}/{repo}/issues")
     public List<Issue> getIssuesRepo(@PathVariable String owner, @PathVariable String repo) {
         List<Issue> listResult = new ArrayList<>();

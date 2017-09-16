@@ -1,5 +1,7 @@
 package issue;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
 public class Issue {
@@ -30,6 +32,7 @@ public class Issue {
     }
 
 
+    @ApiModelProperty(notes = "The id of the issue", required = true)
     public Long getId() {
         return id;
     }
