@@ -1,2 +1,2 @@
 # translations_test
-Cchallenge for Translations.com
+Challenge for Translations.com
