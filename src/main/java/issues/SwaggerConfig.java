@@ -28,7 +28,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("Spring REST Api with Swagger")
+            .title("REST Api with Spring Boot, MongoDB and Swagger")
             .description("Challenge for Transperfect.com")
             .contact("Raul Sanchez")
             .version("1.0")

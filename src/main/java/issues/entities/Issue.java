@@ -4,36 +4,37 @@ import io.swagger.annotations.ApiModelProperty;
 import org.springframework.data.annotation.Id;
 
 import java.util.Date;
+import java.util.List;
 
 public class Issue {
 
+
+
     @Id
+    @ApiModelProperty(notes = "The id of the issues", required = true, hidden = true)
     private String id;
-    private String filter;
+    @ApiModelProperty(notes = "The Title of the issues", required = true, example = "Title Issue")
+    private String title;
+    @ApiModelProperty(notes = "The State of the issues", required = true, example = "Open")
     private String state;
-    private String labels;
-    private String sort;
-    private String direction;
+    private List<String> labels;
+    @ApiModelProperty(notes = "Url", example = "www.google.com")
+    private String url;
+    @ApiModelProperty(hidden = true)
     private Date since;
+    @ApiModelProperty(hidden = true)
     private String owner;
+    @ApiModelProperty(hidden = true)
     private Boolean locked;
+    private Body body;
+
 
     public Issue() {
-    }
-
-    public Issue(String filter, String state, String labels, String sort, String direction, String owner) {
-        this.filter = filter;
-        this.state = state;
-        this.labels = labels;
-        this.sort = sort;
-        this.direction = direction;
-        this.since = new Date();
-        this.owner = owner;
         this.locked = false;
+        this.since = new Date();
     }
 
 
-    @ApiModelProperty(notes = "The id of the issues", required = true)
     public String getId() {
         return id;
     }
@@ -42,12 +43,12 @@ public class Issue {
         this.id = id;
     }
 
-    public String getFilter() {
-        return filter;
+    public String getTitle() {
+        return title;
     }
 
-    public void setFilter(String filter) {
-        this.filter = filter;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getState() {
@@ -58,28 +59,20 @@ public class Issue {
         this.state = state;
     }
 
-    public String getLabels() {
+    public List<String> getLabels() {
         return labels;
     }
 
-    public void setLabels(String labels) {
+    public void setLabels(List<String> labels) {
         this.labels = labels;
     }
 
-    public String getSort() {
-        return sort;
+    public String getUrl() {
+        return url;
     }
 
-    public void setSort(String sort) {
-        this.sort = sort;
-    }
-
-    public String getDirection() {
-        return direction;
-    }
-
-    public void setDirection(String direction) {
-        this.direction = direction;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Date getSince() {
@@ -104,5 +97,13 @@ public class Issue {
 
     public void setLocked(Boolean locked) {
         this.locked = locked;
+    }
+
+    public Body getBody() {
+        return body;
+    }
+
+    public void setBody(Body body) {
+        this.body = body;
     }
 }

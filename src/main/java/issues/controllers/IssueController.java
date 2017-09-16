@@ -21,13 +21,9 @@ import java.util.List;
 @RestController
 public class IssueController {
 
-    //private static final String template = "Hello, %s!";
-    //private final AtomicLong counter = new AtomicLong();
-
     @Autowired
     IssuesService issuesService;
 
-//    private List<Issue> issueList = new ArrayList<>();
 
     @ApiOperation(value = "Obtain all Issues", nickname = "getAllIssues")
     @ApiImplicitParams({
@@ -39,14 +35,7 @@ public class IssueController {
         @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(method = RequestMethod.GET, value = "/issues")
     public List<Issue> getAllIssues(@RequestParam(value="filter", defaultValue="assigned") String filter) {
-        //return this.getIssueList();
         return this.issuesService.obtainAllIssues(filter);
     }
-
-
-
-//    public List<Issue> getIssueList() {
-//        return issueList;
-//    }
 
 }
