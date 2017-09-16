@@ -1,12 +1,14 @@
 package issues.entities;
 
 import io.swagger.annotations.ApiModelProperty;
+import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 
 public class Issue {
 
-    private Long id;
+    @Id
+    private String id;
     private String filter;
     private String state;
     private String labels;
@@ -19,8 +21,7 @@ public class Issue {
     public Issue() {
     }
 
-    public Issue(Long id, String filter, String state, String labels, String sort, String direction, String owner) {
-        this.id = id;
+    public Issue(String filter, String state, String labels, String sort, String direction, String owner) {
         this.filter = filter;
         this.state = state;
         this.labels = labels;
@@ -33,11 +34,11 @@ public class Issue {
 
 
     @ApiModelProperty(notes = "The id of the issues", required = true)
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

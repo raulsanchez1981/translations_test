@@ -7,6 +7,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import issues.entities.Issue;
+import issues.services.IssuesService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,9 +24,12 @@ public class IssueController {
     //private static final String template = "Hello, %s!";
     //private final AtomicLong counter = new AtomicLong();
 
-    private List<Issue> issueList = new ArrayList<>();
+    @Autowired
+    IssuesService issuesService;
 
-    @ApiOperation(value = "getAllIssues", nickname = "getAllIssues")
+//    private List<Issue> issueList = new ArrayList<>();
+
+    @ApiOperation(value = "Obtain all Issues", nickname = "getAllIssues")
     @ApiImplicitParams({
         @ApiImplicitParam(name = "filter", value = "Indicates which sorts of issues to return", required = false, dataType = "string", paramType = "query", defaultValue="assigned")
     })
@@ -34,13 +39,14 @@ public class IssueController {
         @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(method = RequestMethod.GET, value = "/issues")
     public List<Issue> getAllIssues(@RequestParam(value="filter", defaultValue="assigned") String filter) {
-        return this.getIssueList();
+        //return this.getIssueList();
+        return this.issuesService.obtainAllIssues(filter);
     }
 
 
 
-    public List<Issue> getIssueList() {
-        return issueList;
-    }
+//    public List<Issue> getIssueList() {
+//        return issueList;
+//    }
 
 }
