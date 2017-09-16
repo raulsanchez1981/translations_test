@@ -1,5 +1,6 @@
 package issue;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Api(tags = "Manage Issues from a Repo")
 @RestController
 @RequestMapping("/repos")
 public class RepoController {
