@@ -33,7 +33,7 @@ public class OwnerController {
 
 
     @Autowired
-    IssuesService issuesService;
+    private IssuesService issuesService;
 
 
     @ApiOperation(value = "Obtain a List of Issues", nickname = "getIssuesByOwner")
@@ -61,14 +61,6 @@ public class OwnerController {
         @ApiResponse(code = 500, message = "Failure", response = IssueControllerException.class)})
     @RequestMapping(method=RequestMethod.GET, value="/{owner}/issues/{id}")
     public Issue getIssueOwnerById(@PathVariable String owner, @PathVariable String id) throws IssueControllerException {
-////        List<Issue> listResult = new ArrayList<>();
-////        Issue issueResult = null;
-////        if (null != this.getIssueSchema().get(repo)) {
-////            listResult = this.getIssueSchema().get(repo).stream().filter(p -> (p.getOwner().equalsIgnoreCase(owner) && p.getId().equals(id))).collect(Collectors.toList());
-////        }
-////        if (!listResult.isEmpty()) {
-////            issueResult = listResult.get(0);
-////        }
         try {
             return this.issuesService.obtainIssuesByOwnerAndId(owner, id);
         } catch (IssueServiceException e) {

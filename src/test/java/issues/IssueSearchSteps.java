@@ -27,10 +27,10 @@ public class IssueSearchSteps {
     private List<Issue> listIssues = new ArrayList<>();
 
     @Autowired
-    IssuesService issuesService;
+    private IssuesService issuesService;
 
     @Autowired
-    IssueRepository issueRepository;
+    private IssueRepository issueRepository;
 
 
     @Given("the next issues already created in the system for the owner '(.+)'")
@@ -45,15 +45,21 @@ public class IssueSearchSteps {
         this.listIssues = this.issuesService.obtainAllIssues();
     }
 
-    @Then("^it should be returned this list of issues with:$")
-    public void checkFoundIssues(List<Issue> checkIssuesList) {
-        List<Issue> listResult = this.listIssues.stream().filter(p -> (!p.getId().equals(null))).collect(Collectors.toList());
-        Assert.assertEquals(checkIssuesList.size(), listResult.size());
-    }
-
     @Then("^it should be returned this list of issues with '(.+)' elements$")
     public void countFoundIssues(long count) {
         Assert.assertTrue(count == listIssues.size());
+    }
+
+    @Then("^it should be returned this list of issues with not empty id$")
+    public void checkIdFoundIssues() {
+        List<Issue> listResult = this.listIssues.stream().filter(p -> (!p.getId().equals(null))).collect(Collectors.toList());
+        Assert.assertEquals(listIssues.size(), listResult.size());
+    }
+
+    @Then("^it should be returned this list of issues with all the elemets unlocked$")
+    public void checkFoundIssues() {
+        List<Issue> listResult = this.listIssues.stream().filter(p -> (p.getLocked().equals(false))).collect(Collectors.toList());
+        Assert.assertEquals(listIssues.size(), listResult.size());
     }
 
     @After

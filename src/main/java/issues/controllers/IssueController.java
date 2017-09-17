@@ -22,7 +22,7 @@ import java.util.List;
 public class IssueController {
 
     @Autowired
-    IssuesService issuesService;
+    private IssuesService issuesService;
 
 
     @ApiOperation(value = "Obtain all Issues", nickname = "getAllIssues")

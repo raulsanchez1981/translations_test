@@ -16,7 +16,7 @@ import java.util.List;
 public class IssuesServiceImpl implements IssuesService {
 
     @Autowired
-    IssueRepository issueRepository;
+    private IssueRepository issueRepository;
 
     public List<Issue> obtainAllIssues() {
         return this.issueRepository.findAll();
