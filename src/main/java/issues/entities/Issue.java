@@ -1,12 +1,14 @@
 package issues.entities;
 
 import io.swagger.annotations.ApiModelProperty;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.springframework.data.annotation.Id;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Issue {
+public class Issue implements Serializable {
 
 
 
@@ -106,4 +108,38 @@ public class Issue {
     public void setBody(Body body) {
         this.body = body;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        EqualsBuilder equalsBuilder = new EqualsBuilder();
+        Boolean result = false;
+        if (o instanceof Issue) {
+            Issue issue = (Issue) o;
+            equalsBuilder.append(id, issue.id);
+            equalsBuilder.append(title, issue.title);
+            equalsBuilder.append(state, issue.state);
+            equalsBuilder.append(url, issue.url);
+            equalsBuilder.append(since, issue.since);
+            equalsBuilder.append(owner, issue.owner);
+            equalsBuilder.append(locked, issue.locked);
+            equalsBuilder.append(body, issue.body);
+            result = equalsBuilder.isEquals();
+        }
+        return result;
+    }
+
+
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (state != null ? state.hashCode() : 0);
+        result = 31 * result + (url != null ? url.hashCode() : 0);
+        result = 31 * result + (since != null ? since.hashCode() : 0);
+        result = 31 * result + (owner != null ? owner.hashCode() : 0);
+        result = 31 * result + (locked ? 1 : 0);
+        return result;
+    }
+
 }

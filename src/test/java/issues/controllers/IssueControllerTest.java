@@ -23,6 +23,9 @@ public class IssueControllerTest {
     @Mock
     private IssuesService issuesService;
 
+    @Mock
+    private IssueController issueController;
+
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -32,7 +35,7 @@ public class IssueControllerTest {
     @Test
     public void testGetAllIssues() {
         Mockito.when(issuesService.obtainAllIssues()).thenReturn(this.emptyList);
-        List<Issue> result = this.issuesService.obtainAllIssues();
+        List<Issue> result = this.issueController.getAllIssues();
         Assert.assertEquals(result, this.emptyList);
     }
 }
