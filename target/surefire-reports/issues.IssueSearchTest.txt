@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: issues.IssueSearchTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 2, Skipped: 2, Time elapsed: 0.008 sec <<< FAILURE! - in issues.IssueSearchTest
+Given the next issues already created in the system for the owner 'test'(Scenario: SC01. Check the search request retrieve all issues from the database.)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at issues.IssueSearchSteps.createNewIssues(IssueSearchSteps.java:28)
+	at ?.Given the next issues already created in the system for the owner 'test'(issues/features/searchIssues.feature:6)
+
+Scenario: SC01. Check the search request retrieve all issues from the database.  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at issues.IssueSearchSteps.createNewIssues(IssueSearchSteps.java:28)
+	at ?.Given the next issues already created in the system for the owner 'test'(issues/features/searchIssues.feature:6)
+

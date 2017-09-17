@@ -26,16 +26,13 @@ public class IssueController {
 
 
     @ApiOperation(value = "Obtain all Issues", nickname = "getAllIssues")
-    @ApiImplicitParams({
-        @ApiImplicitParam(name = "filter", value = "Indicates which sorts of issues to return", required = false, dataType = "string", paramType = "query", defaultValue="assigned")
-    })
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Success", response = Issue.class, responseContainer = "List"),
         @ApiResponse(code = 404, message = "Not Found"),
         @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(method = RequestMethod.GET, value = "/issues")
-    public List<Issue> getAllIssues(@RequestParam(value="filter", defaultValue="assigned") String filter) {
-        return this.issuesService.obtainAllIssues(filter);
+    public List<Issue> getAllIssues() {
+        return this.issuesService.obtainAllIssues();
     }
 
 }

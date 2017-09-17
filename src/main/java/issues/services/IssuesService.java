@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface IssuesService {
 
-    List<Issue> obtainAllIssues (String filter);
+    List<Issue> obtainAllIssues ();
 
     List<Issue> obtainIssuesByOwner (String owner);
 

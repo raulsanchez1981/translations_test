@@ -18,7 +18,7 @@ public class IssuesServiceImpl implements IssuesService {
     @Autowired
     IssueRepository issueRepository;
 
-    public List<Issue> obtainAllIssues(String filter) {
+    public List<Issue> obtainAllIssues() {
         return this.issueRepository.findAll();
     }
 
