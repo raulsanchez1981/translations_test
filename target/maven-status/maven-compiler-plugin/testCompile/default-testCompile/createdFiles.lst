@@ -1,3 +1,5 @@
 issues\IssueSearchTest.class
-hello\GreetingControllerTests.class
+issues\services\IssueServiceTest.class
+issues\controllers\OwnerControllerTest.class
+issues\controllers\IssueControllerTest.class
 issues\IssueSearchSteps.class

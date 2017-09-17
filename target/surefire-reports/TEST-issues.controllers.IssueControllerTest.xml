@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="issues.IssueSearchTest" time="0.001" tests="12" errors="0" skipped="0" failures="0">
+<testsuite name="issues.controllers.IssueControllerTest" time="0.762" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_74\jre\bin"/>
@@ -62,16 +62,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="Given the next issues already created in the system for the owner &apos;test&apos;" classname="Scenario: SC01. Check the search request retrieve the correct number of issues from the database." time="0"/>
-  <testcase name="When the user requests all the issues in the system" classname="Scenario: SC01. Check the search request retrieve the correct number of issues from the database." time="0"/>
-  <testcase name="Then it should be returned this list of issues with &apos;2&apos; elements" classname="Scenario: SC01. Check the search request retrieve the correct number of issues from the database." time="0"/>
-  <testcase name="Scenario: SC01. Check the search request retrieve the correct number of issues from the database." classname="Scenario: SC01. Check the search request retrieve the correct number of issues from the database." time="0"/>
-  <testcase name="Given the next issues already created in the system for the owner &apos;test&apos;" classname="Scenario: SC02. Check the search request retrieve all the issues with unique id from the database." time="0"/>
-  <testcase name="When the user requests all the issues in the system" classname="Scenario: SC02. Check the search request retrieve all the issues with unique id from the database." time="0"/>
-  <testcase name="Then it should be returned this list of issues with not empty id" classname="Scenario: SC02. Check the search request retrieve all the issues with unique id from the database." time="0"/>
-  <testcase name="Scenario: SC02. Check the search request retrieve all the issues with unique id from the database." classname="Scenario: SC02. Check the search request retrieve all the issues with unique id from the database." time="0"/>
-  <testcase name="Given the next issues already created in the system for the owner &apos;test&apos;" classname="Scenario: SC03. Check the search request retrieve all issues from the database." time="0"/>
-  <testcase name="When the user requests all the issues in the system" classname="Scenario: SC03. Check the search request retrieve all issues from the database." time="0"/>
-  <testcase name="Then it should be returned this list of issues with all the elemets unlocked" classname="Scenario: SC03. Check the search request retrieve all issues from the database." time="0"/>
-  <testcase name="Scenario: SC03. Check the search request retrieve all issues from the database." classname="Scenario: SC03. Check the search request retrieve all issues from the database." time="0.001"/>
+  <testcase name="testGetAllIssues" classname="issues.controllers.IssueControllerTest" time="0.762"/>
 </testsuite>

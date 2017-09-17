@@ -4,17 +4,27 @@
     "elements": [
       {
         "line": 5,
-        "name": "SC01. Check the search request retrieve all issues from the database.",
+        "name": "SC01. Check the search request retrieve the correct number of issues from the database.",
         "description": "",
-        "id": "we-want-to-test-the-all-issues-searching-service-for-the-project;sc01.-check-the-search-request-retrieve-all-issues-from-the-database.",
+        "id": "we-want-to-test-the-all-issues-searching-service-for-the-project;sc01.-check-the-search-request-retrieve-the-correct-number-of-issues-from-the-database.",
+        "after": [
+          {
+            "result": {
+              "duration": 10924718,
+              "status": "passed"
+            },
+            "match": {
+              "location": "IssueSearchSteps.tearDown()"
+            }
+          }
+        ],
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 298073435,
-              "error_message": "java.lang.NullPointerException\r\n\tat issues.IssueSearchSteps.createNewIssues(IssueSearchSteps.java:30)\r\n\tat ✽.Given the next issues already created in the system for the owner \u0027test\u0027(issues/features/searchIssues.feature:6)\r\n",
-              "status": "failed"
+              "duration": 563814975,
+              "status": "passed"
             },
             "line": 6,
             "name": "the next issues already created in the system for the owner \u0027test\u0027",
@@ -57,7 +67,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 84848820,
+              "status": "passed"
             },
             "line": 10,
             "name": "the user requests all the issues in the system",
@@ -68,36 +79,198 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 364308,
+              "status": "passed"
             },
             "line": 11,
-            "name": "it should be returned this list of issues with:",
+            "name": "it should be returned this list of issues with \u00272\u0027 elements",
             "match": {
-              "location": "IssueSearchSteps.checkFoundIssues(Issue\u003e)"
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 48
+                }
+              ],
+              "location": "IssueSearchSteps.countFoundIssues(long)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 13,
+        "name": "SC02. Check the search request retrieve all the issues with unique id from the database.",
+        "description": "",
+        "id": "we-want-to-test-the-all-issues-searching-service-for-the-project;sc02.-check-the-search-request-retrieve-all-the-issues-with-unique-id-from-the-database.",
+        "after": [
+          {
+            "result": {
+              "duration": 2354871,
+              "status": "passed"
+            },
+            "match": {
+              "location": "IssueSearchSteps.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5312411,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "the next issues already created in the system for the owner \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "test",
+                  "offset": 61
+                }
+              ],
+              "location": "IssueSearchSteps.createNewIssues(String,Issue\u003e)"
             },
             "rows": [
               {
                 "cells": [
+                  "state",
                   "title",
-                  "locked"
+                  "url"
                 ],
-                "line": 12
+                "line": 15
               },
               {
                 "cells": [
+                  "open",
                   "Issue 1",
-                  "false"
+                  "www.test.com"
                 ],
-                "line": 13
+                "line": 16
               },
               {
                 "cells": [
+                  "closed",
                   "Issue 2",
-                  "false"
+                  "www.google.com"
                 ],
-                "line": 14
+                "line": 17
               }
             ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2560000,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "the user requests all the issues in the system",
+            "match": {
+              "location": "IssueSearchSteps.searchIssues()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 17675898,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "it should be returned this list of issues with not empty id",
+            "match": {
+              "location": "IssueSearchSteps.checkIdFoundIssues()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 21,
+        "name": "SC03. Check the search request retrieve all issues from the database.",
+        "description": "",
+        "id": "we-want-to-test-the-all-issues-searching-service-for-the-project;sc03.-check-the-search-request-retrieve-all-issues-from-the-database.",
+        "after": [
+          {
+            "result": {
+              "duration": 1799384,
+              "status": "passed"
+            },
+            "match": {
+              "location": "IssueSearchSteps.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5464615,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "the next issues already created in the system for the owner \u0027test\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "test",
+                  "offset": 61
+                }
+              ],
+              "location": "IssueSearchSteps.createNewIssues(String,Issue\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "state",
+                  "title",
+                  "url"
+                ],
+                "line": 23
+              },
+              {
+                "cells": [
+                  "open",
+                  "Issue 1",
+                  "www.test.com"
+                ],
+                "line": 24
+              },
+              {
+                "cells": [
+                  "closed",
+                  "Issue 2",
+                  "www.google.com"
+                ],
+                "line": 25
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2674462,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "the user requests all the issues in the system",
+            "match": {
+              "location": "IssueSearchSteps.searchIssues()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 577641,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "it should be returned this list of issues with all the elemets unlocked",
+            "match": {
+              "location": "IssueSearchSteps.checkFoundIssues()"
+            },
             "keyword": "Then "
           }
         ]
